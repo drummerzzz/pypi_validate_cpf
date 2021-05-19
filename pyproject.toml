@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "validate_cpf"
+version = "0.1.0"
+description = "Faz a validação de CPF Brasileiro"
+authors = ["Drummerzzz <devdrummerzzz@gmail.com>"]
+keywords = ['cpf', 'validador', 'validação', 'validation', 'validator', 'poetry']
+
+repository = "https://github.com/drummerzzz/pypi_validate_cpf"
+homepage = "https://github.com/drummerzzz/pypi_validate_cpf/README.md"
+
+readme = 'README.md'
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

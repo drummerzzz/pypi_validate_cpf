@@ -28,7 +28,7 @@ setup(
     package_dir={"": "src"},
     packages=find_packages(include=["src/validate_cpf", "src/validate_cpf.*"]),
     setup_requires=[],
-    url="https://github.com/drummerzzz/validate_cpf",
+    url="https://github.com/drummerzzz/pypi_validate_cpf",
     version="0.1.0",
     zip_safe=False,
 )
