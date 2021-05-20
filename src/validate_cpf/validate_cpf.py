@@ -11,14 +11,17 @@ def is_allowed(cpf:str):
   first_digit = cpf[0]
   return all(first_digit == digit for digit in cpf)
 
+def generate_factories(factory:int, min_factory:int = 2):
+    return [i for i in reversed(range(min_factory, factory + 1))] # Número magico
+
 def caculate_digit(cpf:str, is_first_digit:bool=True):
   FACTORY = 10 if is_first_digit else 11
-  FACTORIES = [i for i in reversed(range(2, FACTORY + 1))] # Número magico
+  FACTORIES = generate_factories(factory=FACTORY)
   result_sum = 0
   for index, factory, in enumerate(FACTORIES, 0):
     result_sum += factory * int(cpf[index])
   REST = result_sum % 11 # Número magico
-  DIGIT = 11 - REST if REST > 2 and REST < 10 else 0 # Números magicos
+  DIGIT = 11 - REST if REST > 1 and REST < 10 else 0 # Números magicos
   return DIGIT
 
 def is_valid(cpf:str):
