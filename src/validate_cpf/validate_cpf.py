@@ -21,8 +21,9 @@ def caculate_digit(cpf:str, is_first_digit:bool=True):
   for index, factory, in enumerate(FACTORIES, 0):
     result_sum += factory * int(cpf[index])
   REST = result_sum % 11 # Número magico
-  DIGIT = 11 - REST if REST > 1 and REST < 10 else 0 # Números magicos
-  return DIGIT
+  if REST < 2 or REST > 10:
+    return 0
+  return 11 - REST
 
 def is_valid(cpf:str):
   cpf = clean(cpf)
@@ -30,7 +31,6 @@ def is_valid(cpf:str):
     return False
   if is_allowed(cpf):
     return False
-  
   first_verification_digit = caculate_digit(cpf)
   last_verification_digit = caculate_digit(cpf, is_first_digit=False)
   return cpf[-2:] == f'{first_verification_digit}{last_verification_digit}'
