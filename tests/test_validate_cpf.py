@@ -1,11 +1,16 @@
 import random
-from validate_cpf import validate_cpf
+from src.validate_cpf import validate_cpf
 
-VALID_CPF_WITH_MASK = random.choice(['529.982.247-25', '654.663.508-93', '420.457.238-36', '724.617.518-03'])
-VALID_CPF_WITHOUT_MASK = random.choice(['52998224725', '65466350893', '42045723836', '72461751803'])
+VALID_CPF_LIST_WITH_MASK = ['529.982.247-25', '654.663.508-93', '884.853.563-14', '420.457.238-36', '724.617.518-03']
+VALID_CPF_LIST_WITHOUT_MASK = ['52998224725', '65466350893', '88485356314', '42045723836', '72461751803']
+INVALID_CPF_LIST_WITH_MASK = ['968.982.247-25', '654.063.508-93', '410.457.138-36', '111.111.111-11']
+INVALID_CPF_LIST_WITHOUT_MASK = ['96898224725','65406350932', '41045718366', '11111111111']
 
-INVALID_CPF_WITH_MASK = random.choice(['968.982.247-25', '654.063.508-93', '410.457.138-36', '111.111.111-11'])
-INVALID_CPF_WITHOUT_MASK = random.choice(['96898224725','65406350932', '41045718366', '11111111111'])
+VALID_CPF_WITH_MASK = random.choice(VALID_CPF_LIST_WITH_MASK)
+VALID_CPF_WITHOUT_MASK = random.choice(VALID_CPF_LIST_WITHOUT_MASK)
+
+INVALID_CPF_WITH_MASK = random.choice(INVALID_CPF_LIST_WITH_MASK)
+INVALID_CPF_WITHOUT_MASK = random.choice(INVALID_CPF_LIST_WITHOUT_MASK)
 
 def test_validate_cpf_module():
     assert validate_cpf is not None
@@ -44,7 +49,7 @@ def test_invalid_cpf_whitout_mask():
     CPF = INVALID_CPF_WITHOUT_MASK
     assert validate_cpf.is_valid(CPF) == False
 
-def test_invalid_cpf_whith_mask():
+def test_invalid_cpf_with_mask():
     CPF = INVALID_CPF_WITH_MASK
     assert validate_cpf.is_valid(CPF) == False
 
@@ -52,7 +57,22 @@ def test_valid_cpf_whitout_mask():
     CPF = VALID_CPF_WITHOUT_MASK
     assert validate_cpf.is_valid(CPF) == True
 
-def test_valid_cpf_whith_mask():
+def test_valid_cpf_with_mask():
     CPF = VALID_CPF_WITH_MASK
     assert validate_cpf.is_valid(CPF) == True
 
+def test_all_invalid_cpf_with_mask():
+    for CPF in INVALID_CPF_LIST_WITH_MASK:
+        assert validate_cpf.is_valid(CPF) == False
+
+def test_all_invalid_cpf_without_mask():
+    for CPF in INVALID_CPF_LIST_WITHOUT_MASK:
+        assert validate_cpf.is_valid(CPF) == False
+
+def test_all_valid_cpf_with_mask():
+    for CPF in VALID_CPF_LIST_WITH_MASK:
+        assert validate_cpf.is_valid(CPF) == True
+
+def test_all_valid_cpf_without_mask():
+    for CPF in VALID_CPF_LIST_WITHOUT_MASK:
+        assert validate_cpf.is_valid(CPF) == True
