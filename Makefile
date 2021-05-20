@@ -5,3 +5,6 @@ install:
 publish:
 	poetry build
 	poetry publish
+
+test:
+	pytest --cache-clear
