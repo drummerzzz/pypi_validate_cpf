@@ -30,12 +30,12 @@ def test_incorrect_cpf_length():
     BIGGER_CPF = '1234567891011'
     assert validate_cpf.has_correct_length(BIGGER_CPF) == False
 
-def test_is_allowed_cpf():
+def test_is_not_allowed_cpf():
     ALLOWED_CPF = '11111111111'
-    assert validate_cpf.is_allowed(ALLOWED_CPF) == True
+    assert validate_cpf.is_allowed(ALLOWED_CPF) == False
 
-def test_not_is_allowed_cpf():
-    assert validate_cpf.is_allowed(VALID_CPF_WITHOUT_MASK) == False
+def test_is_allowed_cpf():
+    assert validate_cpf.is_allowed(VALID_CPF_WITHOUT_MASK) == True
 
 def test_fist_verification_digit():
     CORRECT_FIST_DIGIT = int(VALID_CPF_WITHOUT_MASK[-2])
