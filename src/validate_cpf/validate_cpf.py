@@ -9,10 +9,10 @@ def has_correct_length(cpf:str):
 
 def is_allowed(cpf:str):
   first_digit = cpf[0]
-  return all(first_digit == digit for digit in cpf)
+  return not all(first_digit == digit for digit in cpf)
 
 def generate_factories(factory:int, min_factory:int = 2):
-    return [i for i in reversed(range(min_factory, factory + 1))] # Número magico
+  return [i for i in reversed(range(min_factory, factory + 1))] # Número magico
 
 def caculate_digit(cpf:str, is_first_digit:bool=True):
   FACTORY = 10 if is_first_digit else 11
@@ -29,7 +29,7 @@ def is_valid(cpf:str):
   cpf = clean(cpf)
   if not has_correct_length(cpf):
     return False
-  if is_allowed(cpf):
+  if not is_allowed(cpf):
     return False
   first_verification_digit = caculate_digit(cpf)
   last_verification_digit = caculate_digit(cpf, is_first_digit=False)
