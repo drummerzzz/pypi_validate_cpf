@@ -1,17 +1,16 @@
 # validate-cpf
-<p align="center">
 
-<a href="https://pypi.python.org/pypi/validate_cpf">
-<img src="https://img.shields.io/pypi/v/validate_cpf.svg" /></a>
-<!-- <a href="https://travis-ci.org/drummerzzz/validate_cpf"><img src="https://travis-ci.org/drummerzzz/validate_cpf.svg?branch=master" /></a> -->
-</p>
+[![pipy](https://img.shields.io/pypi/v/validate_cpf.svg)](https://pypi.python.org/pypi/validate_cpf)
+
 Validates Brazilian CPF
 
 ## Features
--   CPF Validation with mask
--   CPF Validation without mask
+
+- CPF Validation with mask
+- CPF Validation without mask
 
 ## Modes of use
+
 ```python
 #!/usr/bin/python
 import validate_cpf
@@ -35,14 +34,13 @@ is_valid('11111111111') # False
 # With mask
 is_valid('111.111.111-11') # False
 ```
+
 # Author
 
-<a href="https://joaofilho.dev">João Filho Drummerzzz</a>
-
-<a href="https://github.com/drummerzzz">Github</a>
+[João Filho](https://joaofilho.dev)
+[Github](https://github.com/drummerzzz)
 
 # Credits
-
 
 This package was created with Cookiecutter and the `cs01/cookiecutter-pypackage` project template.
 
