@@ -10,6 +10,7 @@ ignore =
     E111 # Indentation from 4 espaces
     E203 # Whitespace before ':'
     E501 # Line too long
+    E712 # Comparison to True should be 'if cond is True
     W503 # Line break before binary operator
 
 exclude =
