@@ -1,0 +1,4 @@
+
+[tool.black]
+# https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html
+line-length = 88

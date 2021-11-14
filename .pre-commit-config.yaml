@@ -1,0 +1,53 @@
+#https://pre-commit.com/hooks.html
+repos:
+
+  # Code Formatter
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+    -   id: trailing-whitespace
+    -   id: check-ast
+    # -   id: end-of-file-fixer
+    # -   id: check-docstring-first
+    # -   id: check-json
+    # -   id: check-added-large-files
+    # -   id: check-yaml
+    # -   id: debug-statements
+    # -   id: name-tests-test
+    -   id: double-quote-string-fixer
+    # -   id: requirements-txt-fixer
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.5.2
+    hooks:
+    - id: isort
+      stages: [commit]
+
+-   repo: https://github.com/ambv/black
+    rev: 21.8b0
+    hooks:
+    - id: black
+      args: [-S]
+      language_version: python3.8
+      stages: [commit]
+
+  # Lintter
+-   repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+    - id: flake8
+      additional_dependencies: [flake8-docstrings]
+      stages: [commit]
+
+  # Tests
+-   repo: local
+    hooks:
+    -   id: pytest
+        name: pytest
+        entry: pytest
+        args: [-s, -v, -vv, --durations=0, --cache-clear]
+        language: system
+        always_run: true
+        verbose: true
+        pass_filenames: false
+        stages: [push]
