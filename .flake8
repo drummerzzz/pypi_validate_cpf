@@ -1,5 +1,6 @@
+[flake8]
 ignore =
-     # Missing docstring in public class
+    # Missing docstring in public class
     D101,
     # Missing docstring in public module
     D100,

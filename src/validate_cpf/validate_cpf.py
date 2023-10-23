@@ -3,7 +3,7 @@ from typing import List
 
 
 def __clean(cpf: str) -> str:
-    return ''.join(re.findall('[0-9]+', cpf))
+    return re.sub(r'\D', '', cpf)
 
 
 def __has_correct_length(cpf: str) -> bool:
@@ -23,9 +23,7 @@ def __generate_factories(factory: int, min_factory: int = 2) -> List[int]:
 def __caculate_digit(cpf: str, is_first_digit: bool = True) -> bool:
     FACTORY = 10 if is_first_digit else 11
     FACTORIES = __generate_factories(factory=FACTORY)
-    result_sum = 0
-    for index, factory in enumerate(FACTORIES, 0):
-        result_sum += factory * int(cpf[index])
+    result_sum = sum(map(lambda item: item[0] * int(item[1]), zip(FACTORIES, cpf)))
     REST = result_sum % 11  # Número magico
     if REST < 2 or REST > 10:
         return 0

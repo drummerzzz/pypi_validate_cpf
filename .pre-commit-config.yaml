@@ -23,8 +23,8 @@ repos:
         stages: [commit]
     -   id: name-tests-test
         stages: [commit]
-    # -   id: double-quote-string-fixer
-    #     stages: [commit]
+    -   id: double-quote-string-fixer
+        stages: [commit]
     -   id: requirements-txt-fixer
         stages: [commit]
 
@@ -49,7 +49,6 @@ repos:
     rev: 6.0.0
     hooks:
     - id: flake8
-      additional_dependencies: [flake8-docstrings]
       stages: [commit]
 
 -   repo: https://github.com/myint/autoflake
