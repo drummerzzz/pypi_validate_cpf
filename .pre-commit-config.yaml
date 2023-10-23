@@ -3,41 +3,60 @@ repos:
 
   # Code Formatter
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.4.0
     hooks:
     -   id: trailing-whitespace
+        stages: [commit]
     -   id: check-ast
-    # -   id: end-of-file-fixer
-    # -   id: check-docstring-first
-    # -   id: check-json
-    # -   id: check-added-large-files
-    # -   id: check-yaml
-    # -   id: debug-statements
-    # -   id: name-tests-test
-    -   id: double-quote-string-fixer
-    # -   id: requirements-txt-fixer
+        stages: [commit]
+    -   id: end-of-file-fixer
+        stages: [commit]
+    -   id: check-docstring-first
+        stages: [commit]
+    -   id: check-json
+        stages: [commit]
+    -   id: check-added-large-files
+        stages: [commit]
+    -   id: check-yaml
+        stages: [commit]
+    -   id: debug-statements
+        stages: [commit]
+    -   id: name-tests-test
+        stages: [commit]
+    # -   id: double-quote-string-fixer
+    #     stages: [commit]
+    -   id: requirements-txt-fixer
+        stages: [commit]
 
--   repo: https://github.com/pycqa/isort
-    rev: 5.5.2
-    hooks:
-    - id: isort
-      stages: [commit]
-
+  # Formmater
 -   repo: https://github.com/ambv/black
-    rev: 21.8b0
+    rev: 23.3.0
     hooks:
     - id: black
       args: [-S]
-      language_version: python3.8
+      language_version: python3.10
       stages: [commit]
 
+-   repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--profile", "black", "--filter-files"]
+        stages: [commit]
+
   # Lintter
--   repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.2
+-   repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
     hooks:
     - id: flake8
       additional_dependencies: [flake8-docstrings]
       stages: [commit]
+
+-   repo: https://github.com/myint/autoflake
+    rev: 'v2.0.2'  # Use the sha / tag you want to point at
+    hooks:
+    -   id: autoflake
+        stages: [commit]
 
   # Tests
 -   repo: local
