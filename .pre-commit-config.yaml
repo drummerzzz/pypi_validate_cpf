@@ -3,7 +3,7 @@ repos:
 
   # Code Formatter
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v4.5.0
     hooks:
     -   id: trailing-whitespace
         stages: [commit]
@@ -30,7 +30,7 @@ repos:
 
   # Formmater
 -   repo: https://github.com/ambv/black
-    rev: 23.3.0
+    rev: 23.10.1
     hooks:
     - id: black
       args: [-S]
@@ -46,13 +46,13 @@ repos:
 
   # Lintter
 -   repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
+    rev: 6.1.0
     hooks:
     - id: flake8
       stages: [commit]
 
 -   repo: https://github.com/myint/autoflake
-    rev: 'v2.0.2'  # Use the sha / tag you want to point at
+    rev: 'v2.2.1'  # Use the sha / tag you want to point at
     hooks:
     -   id: autoflake
         stages: [commit]

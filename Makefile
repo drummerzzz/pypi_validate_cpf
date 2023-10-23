@@ -29,3 +29,6 @@ pre-commit-uninstall-hooks:
 
 pre-commit-update-repos:
 	pre-commit autoupdate
+
+lint:
+	pre-commit run --all-files
