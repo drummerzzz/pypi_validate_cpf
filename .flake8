@@ -1,5 +1,6 @@
+[flake8]
 ignore =
-     # Missing docstring in public class
+    # Missing docstring in public class
     D101,
     # Missing docstring in public module
     D100,
@@ -19,6 +20,8 @@ ignore =
     E501,
     # Line break before binary operator
     W503,
+    E712,
+    # Comparison to True should be 'if cond is True:' or 'if cond:
 
 
 per-file-ignores =
